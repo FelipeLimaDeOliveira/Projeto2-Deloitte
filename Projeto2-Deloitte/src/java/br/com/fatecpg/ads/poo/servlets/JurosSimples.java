@@ -7,6 +7,7 @@ package br.com.fatecpg.ads.poo.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.NumberFormat;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,7 +41,37 @@ public class JurosSimples extends HttpServlet {
             out.println("<title>Servlet JurosSimples</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet JurosSimples at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Aplicação Financeira - Juros Simples</h1>");
+            out.println("<form name='formulario'>");
+            out.println("<table>");
+            out.println("<tr><td>Capital:</td><td><input type='text' name='c'/></td></tr>");
+            out.println("<tr><td>Taxa de juros mensal (%):</td><td><input type='text' name='i'/></td></tr>");
+            out.println("<tr><td>Período (meses):</td><td><input type='text' name='n'/></td></tr>");
+            out.println("<tr><td colspan='2' align='center'><input type='submit' value='Calcular'/></td></tr>");
+            out.println("</table>");
+            out.println("</form>");
+            out.println("<hr/>");
+            
+            double c = Double.parseDouble(request.getParameter("c"));
+            double i = Double.parseDouble(request.getParameter("i"))/100.0+1;
+            int n = Integer.parseInt(request.getParameter("n"));
+            
+            NumberFormat m = NumberFormat.getCurrencyInstance();
+            String montante;
+            
+            out.println("<table border='2'>");
+            out.println("<tr><th>Meses</th><th>Montante</th></tr>");
+            
+            for (int count=1;count<=n;count++)
+            {
+                montante = m.format(c*Math.pow((double)i, (double)count));
+                
+                out.println("<tr><td>"+count+"</td><td>"+montante+"</td></tr>");
+            }
+            
+            
+            out.println("</table>");
+            
             out.println("</body>");
             out.println("</html>");
         }
