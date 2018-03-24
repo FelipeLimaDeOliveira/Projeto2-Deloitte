@@ -39,14 +39,22 @@ public class JurosCompostos extends HttpServlet {
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Servlet JurosCompostos</title>");            
+            out.println("<style>");
+            out.println(".container {\ndisplay: flex;"
+                    + "\nflex-direction: column;"
+                    + "\njustify-content: center;"
+                    + "\nalign-items: center;"
+                    + "\n}");
+            out.println("</style>");
             out.println("</head>");
             out.println("<body>");
+            out.println("<div class='container'>");
             out.println("<h1>Aplicação financeira - Juros Compostos</h1>");
             out.println("<form name='formulario'>");
             out.println("<table>");
-            out.println("<tr><td>Capital:</td><td><input type='text' name='c'/></td></tr>");
-            out.println("<tr><td>Taxa de juros mensal (%):</td><td><input type='text' name='i'/></td></tr>");
-            out.println("<tr><td>Período (meses):</td><td><input type='text' name='n'/></td></tr>");
+            out.println("<tr><td>Capital (R$):</td><td><input type='number' min='0' step='0.01' name='c' required/></td></tr>");
+            out.println("<tr><td>Taxa de juros mensal (%):</td><td><input type='number' min='0' step='any' name='i' required/></td></tr>");
+            out.println("<tr><td>Período (meses):</td><td><input type='number' step='1' min='0' name='n' required/></td></tr>");
             out.println("<tr><td colspan='2' align='center'><input type='submit' value='Calcular'/></td></tr>");
             out.println("</table>");
             out.println("</form>");
@@ -65,13 +73,11 @@ public class JurosCompostos extends HttpServlet {
             for (int count=1;count<=n;count++)
             {
                 montante = m.format(c*Math.pow((double)i, (double)count));
-                
                 out.println("<tr><td>"+count+"</td><td>"+montante+"</td></tr>");
             }
             
-            
             out.println("</table>");
-            
+            out.println("</div>");
             out.println("</body>");
             out.println("</html>");
         }
