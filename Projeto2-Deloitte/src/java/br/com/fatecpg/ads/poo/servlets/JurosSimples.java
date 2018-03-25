@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Felipe
  */
-@WebServlet(name = "JurosSimples", urlPatterns = {"/JurosSimples.php"})
+@WebServlet(name = "JurosSimples", urlPatterns = {"/juros-simples"})
 public class JurosSimples extends HttpServlet {
 
     /**
@@ -34,19 +34,35 @@ public class JurosSimples extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+            
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet JurosSimples</title>");            
+            out.println("<title>Servlet JurosSimples</title>");
+            out.println("<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">" +
+                "<div class=\"collapse navbar-collapse\" id=\"navbarNav\">" +
+                    "<ul class=\"navbar-nav\">" +
+                    "<li class=\"nav-item active\"><a class=\"nav-link\" href=\"/src/home\">Home </a></li>" +
+                    "<li class=\"nav-item\"><a class=\"nav-link\" href=\"/src/juros-simples\">Juros simples</a></li>"+
+                    "<li class=\"nav-item\"><a class=\"nav-link\" href=\"/src/juros-composto\">Juros composto</a></li>" +
+                "</ul></div></nav>");
+            out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\" integrity=\"sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm\" crossorigin=\"anonymous\">");
+            out.println("<style>" +
+                ".container {\ndisplay: flex;" +
+                   "\nflex-direction: column;" +
+                    "\njustify-content: center;" +
+                    "\nalign-items: center;" +
+                    "\n}" +
+                    "</style>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Aplicação Financeira - Juros Simples</h1>");
+            out.println("<div class='container'>");
+            out.println("<h3>Aplicação Financeira - Juros Simples</h3>");
             out.println("<form name='formulario'>");
             out.println("<table>");
-            out.println("<tr><td>Capital:</td><td><input type='text' name='c'/></td></tr>");
-            out.println("<tr><td>Taxa de juros mensal (%):</td><td><input type='text' name='i'/></td></tr>");
-            out.println("<tr><td>Período (meses):</td><td><input type='text' name='n'/></td></tr>");
+            out.println("<tr><td>Capital:</td><td><input min='0' step='0.01' name='c' required/></td></tr>");
+            out.println("<tr><td>Taxa de juros mensal (%):</td><td><input type='number' min='0' step='any' name='i' required/></td></tr>");
+            out.println("<tr><td>Período (meses):</td><td><input type='number' step='1' min='0' name='n' required'/></td></tr>");
             out.println("<tr><td colspan='2' align='center'><input type='submit' value='Calcular'/></td></tr>");
             out.println("</table>");
             out.println("</form>");
@@ -57,21 +73,15 @@ public class JurosSimples extends HttpServlet {
             int n = Integer.parseInt(request.getParameter("n"));
             
             NumberFormat m = NumberFormat.getCurrencyInstance();
-            String montante;
-            
-            out.println("<table border='2'>");
-            out.println("<tr><th>Meses</th><th>Montante</th></tr>");
+            String montante = "";
             
             for (int count=1;count<=n;count++)
             {
                 montante = m.format(c*Math.pow((double)i, (double)count));
-                
-                out.println("<tr><td>"+count+"</td><td>"+montante+"</td></tr>");
             }
             
-            
-            out.println("</table>");
-            
+            out.println("<br><h4>Valor final: R"+montante+"</h4>");
+            out.println("</div>");
             out.println("</body>");
             out.println("</html>");
         }
