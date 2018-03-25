@@ -39,6 +39,7 @@ public class JurosSimples extends HttpServlet {
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Servlet JurosSimples</title>");
+            out.println("<meta charset=\"UTF-8\">");
             out.println("<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">" +
                 "<div class=\"collapse navbar-collapse\" id=\"navbarNav\">" +
                     "<ul class=\"navbar-nav\">" +
@@ -62,7 +63,7 @@ public class JurosSimples extends HttpServlet {
             out.println("<table>");
             out.println("<tr><td>Capital:</td><td><input min='0' step='0.01' name='c' required/></td></tr>");
             out.println("<tr><td>Taxa de juros mensal (%):</td><td><input type='number' min='0' step='any' name='i' required/></td></tr>");
-            out.println("<tr><td>Período (meses):</td><td><input type='number' step='1' min='0' name='n' required'/></td></tr>");
+            out.println("<tr><td>PerÃ­odo (meses):</td><td><input type='number' step='1' min='0' name='n' required'/></td></tr>");
             out.println("<tr><td colspan='2' align='center'><input type='submit' value='Calcular'/></td></tr>");
             out.println("</table>");
             out.println("</form>");

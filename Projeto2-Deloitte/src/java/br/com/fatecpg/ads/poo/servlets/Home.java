@@ -37,6 +37,7 @@ public class Home extends HttpServlet {
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Servlet Home</title>");    
+            out.println("<meta charset=\"UTF-8\">");
             out.println("<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">" +
                 "<div class=\"collapse navbar-collapse\" id=\"navbarNav\">" +
                     "<ul class=\"navbar-nav\">" +
