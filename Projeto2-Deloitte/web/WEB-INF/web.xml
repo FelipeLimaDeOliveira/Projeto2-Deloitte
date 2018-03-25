@@ -1,12 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-	 version="3.1">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <servlet>
+        <servlet-name>Home</servlet-name>
+        <servlet-class>br.com.fatecpg.ads.poo.servlets.Home</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>JurosCompostos</servlet-name>
+        <servlet-class>br.com.fatecpg.ads.poo.servlets.JurosCompostos</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>JurosSimples</servlet-name>
+        <servlet-class>br.com.fatecpg.ads.poo.servlets.JurosSimples</servlet-class>
+    </servlet>
+    
+<!--    <servlet-mapping>
+        <servlet-name>Home</servlet-name>
+        <url-pattern>/src/home</url-pattern>
+    </servlet-mapping>-->
 </web-app>

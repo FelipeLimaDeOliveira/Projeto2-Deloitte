@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Felipe
  */
-@WebServlet(name = "Home", urlPatterns = {"/Home.php"})
+@WebServlet(name = "Home", urlPatterns = {"/home"})
 public class Home extends HttpServlet {
 
     /**
@@ -33,14 +33,44 @@ public class Home extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Home</title>");            
+            out.println("<title>Servlet Home</title>");    
+            out.println("<meta charset=\"UTF-8\">");
+            out.println("<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">" +
+                "<div class=\"collapse navbar-collapse\" id=\"navbarNav\">" +
+                    "<ul class=\"navbar-nav\">" +
+                    "<li class=\"nav-item active\"><a class=\"nav-link\" href=\"/src/home\">Home </a></li>" +
+                    "<li class=\"nav-item\"><a class=\"nav-link\" href=\"/src/juros-simples\">Juros simples</a></li>"+
+                    "<li class=\"nav-item\"><a class=\"nav-link\" href=\"/src/juros-composto\">Juros composto</a></li>" +
+                "</ul></div></nav>");
+            out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\" integrity=\"sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm\" crossorigin=\"anonymous\">");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Home at " + request.getContextPath() + "</h1>");
+            out.println("<h3>Calculadora financeira</h3>");
+            out.println("<style>" +
+                            "img.displayed {" +
+                            "display: block;" +
+                            "margin-left: auto;" +
+                            "margin-right: auto }" +
+                            "p.paragrafo{" +
+                            "\"margin-left: auto;\"" +
+"                            \"margin-right: auto\"}" +
+                        "</style>");
+            out.println("<div class=\"container-fluid\">" +
+                    "<div class=\"row\">" +
+                        "<div class=\"col-md-6\">" +
+                            "<a href='/src/juros-simples'>" +
+                                "<img class=\"displayed\" src=\"https://goo.gl/UhBoC6\" alt=\"Juros Simples\" height=\"230\" width=\"230\"><p></p>" + 
+                            "</a>" +
+                        "</div>" +
+                        "<div class=\"col-md-6\">" + 
+                            "<a href='/src/juros-composto'>" +
+                            "<img class=\"displayed\" src=\"https://goo.gl/eUtm64\" alt=\"Juros composto\" height=\250\" width=\"250\"><p></p>" +
+                            "</a>" +
+                        "</div>" +
+                        "</div>");
             out.println("</body>");
             out.println("</html>");
         }

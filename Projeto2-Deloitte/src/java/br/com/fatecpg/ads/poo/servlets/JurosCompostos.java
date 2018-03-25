@@ -38,23 +38,32 @@ public class JurosCompostos extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet JurosCompostos</title>");            
-            out.println("<style>");
-            out.println(".container {\ndisplay: flex;"
-                    + "\nflex-direction: column;"
-                    + "\njustify-content: center;"
-                    + "\nalign-items: center;"
-                    + "\n}");
-            out.println("</style>");
+            out.println("<title>Servlet JurosCompostos</title>");   
+            out.println("<meta charset=\"UTF-8\">");
+            out.println("<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">" +
+                "<div class=\"collapse navbar-collapse\" id=\"navbarNav\">" +
+                    "<ul class=\"navbar-nav\">" +
+                    "<li class=\"nav-item active\"><a class=\"nav-link\" href=\"/src/home\">Home </a></li>" +
+                    "<li class=\"nav-item\"><a class=\"nav-link\" href=\"/src/juros-simples\">Juros simples</a></li>"+
+                    "<li class=\"nav-item\"><a class=\"nav-link\" href=\"/src/juros-composto\">Juros composto</a></li>" +
+                "</ul></div></nav>");
+            out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\" integrity=\"sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm\" crossorigin=\"anonymous\">");
+            out.println("<style>" +
+                    ".container {\ndisplay: flex;" +
+                    "\nflex-direction: column;" +
+                    "\njustify-content: center;" +
+                    "\nalign-items: center;" +
+                    "\n}" +
+                    "</style>");
             out.println("</head>");
             out.println("<body>");
             out.println("<div class='container'>");
-            out.println("<h1>Aplicação financeira - Juros Compostos</h1>");
+            out.println("<h3>Aplicação financeira - Juros Compostos</h3>");
             out.println("<form name='formulario'>");
             out.println("<table>");
-            out.println("<tr><td>Capital (R$):</td><td><input type='number' min='0' step='0.01' name='c' required/></td></tr>");
-            out.println("<tr><td>Taxa de juros mensal (%):</td><td><input type='number' min='0' step='any' name='i' required/></td></tr>");
-            out.println("<tr><td>Período (meses):</td><td><input type='number' step='1' min='0' name='n' required/></td></tr>");
+            out.println("<tr><td>Capital (R$):</td><td><input type='number' min='0' step='0.01' name='c' required/></td></tr><br/>");
+            out.println("<tr><td>Taxa de juros mensal (%):</td><td><input type='number' min='0' step='any' name='i' required/></td></tr><br/>");
+            out.println("<tr><td>Período (meses):</td><td><input type='number' step='1' min='0' name='n' required/></td></tr><br/>");
             out.println("<tr><td colspan='2' align='center'><input type='submit' value='Calcular'/></td></tr>");
             out.println("</table>");
             out.println("</form>");
