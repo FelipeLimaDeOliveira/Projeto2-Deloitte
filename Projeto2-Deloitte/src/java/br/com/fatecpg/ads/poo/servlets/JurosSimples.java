@@ -35,11 +35,11 @@ public class JurosSimples extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
+            /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet JurosSimples</title>");
+            out.println("<title>Servlet JurosCompostos</title>");   
             out.println("<meta charset=\"UTF-8\">");
             out.println("<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">" +
                 "<div class=\"collapse navbar-collapse\" id=\"navbarNav\">" +
@@ -50,8 +50,8 @@ public class JurosSimples extends HttpServlet {
                 "</ul></div></nav>");
             out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\" integrity=\"sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm\" crossorigin=\"anonymous\">");
             out.println("<style>" +
-                ".container {\ndisplay: flex;" +
-                   "\nflex-direction: column;" +
+                    ".container {\ndisplay: flex;" +
+                    "\nflex-direction: column;" +
                     "\njustify-content: center;" +
                     "\nalign-items: center;" +
                     "\n}" +
@@ -59,12 +59,12 @@ public class JurosSimples extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<div class='container'>");
-            out.println("<h3>Aplicação Financeira - Juros Simples</h3>");
+            out.println("<h3>Aplicação financeira - Juros Simples</h3>");
             out.println("<form name='formulario'>");
             out.println("<table>");
-            out.println("<tr><td>Capital:</td><td><input type='number' placeholder='R$' min='0' step='0.01' name='c' required/></td></tr>");
-            out.println("<tr><td>Taxa de juros mensal:</td><td><input type='number' placeholder='%' min='0' step='any' name='i' required/></td></tr>");
-            out.println("<tr><td>Período (meses):</td><td><input type='number' placeholder='Ex: 3' step='1' min='0' name='n' required/></td></tr>");
+            out.println("<tr><td>Capital:</td><td><input type='number' placeholder='R$'min='0' step='0.01' name='c' required/></td></tr><br/>");
+            out.println("<tr><td>Taxa de juros mensal:</td><td><input type='number'placeholder='%' min='0' step='any' name='i' required/></td></tr><br/>");
+            out.println("<tr><td>Período (meses):</td><td><input type='number' placeholder='Ex: 3'step='1' min='0' name='n' required/></td></tr><br/>");
             out.println("<tr><td colspan='2' align='center'><input type='submit' value='Calcular'/></td></tr>");
             out.println("</table>");
             out.println("</form>");
