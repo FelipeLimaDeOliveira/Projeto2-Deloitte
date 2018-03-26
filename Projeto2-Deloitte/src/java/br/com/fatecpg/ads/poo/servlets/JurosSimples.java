@@ -62,9 +62,9 @@ public class JurosSimples extends HttpServlet {
             out.println("<h3>Aplicação Financeira - Juros Simples</h3>");
             out.println("<form name='formulario'>");
             out.println("<table>");
-            out.println("<tr><td>Capital:</td><td><input min='0' step='0.01' name='c' required/></td></tr>");
-            out.println("<tr><td>Taxa de juros mensal (%):</td><td><input type='number' min='0' step='any' name='i' required/></td></tr>");
-            out.println("<tr><td>Período (meses):</td><td><input type='number' step='1' min='0' name='n' required'/></td></tr>");
+            out.println("<tr><td>Capital:</td><td><input type='number' placeholder='R$' min='0' step='0.01' name='c' required/></td></tr>");
+            out.println("<tr><td>Taxa de juros mensal:</td><td><input type='number' placeholder='%' min='0' step='any' name='i' required/></td></tr>");
+            out.println("<tr><td>Período (meses):</td><td><input type='number' placeholder='Ex: 3' step='1' min='0' name='n' required/></td></tr>");
             out.println("<tr><td colspan='2' align='center'><input type='submit' value='Calcular'/></td></tr>");
             out.println("</table>");
             out.println("</form>");
