@@ -7,6 +7,7 @@ package br.com.fatecpg.ads.poo.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -69,19 +70,22 @@ public class JurosSimples extends HttpServlet {
             out.println("</form>");
             out.println("<hr/>");
             
-            double c = Double.parseDouble(request.getParameter("c"));
-            double i = Double.parseDouble(request.getParameter("i"))/100.0+1;
-            int n = Integer.parseInt(request.getParameter("n"));
-            
-            NumberFormat m = NumberFormat.getCurrencyInstance();
-            String montante = "";
-            
-            for (int count=1;count<=n;count++)
-            {
-                montante = m.format(c*Math.pow((double)i, (double)count));
-            }
-            
-            out.println("<br><h4>Valor final: R"+montante+"</h4>");
+            double j=0;
+            double c=0;
+            double i=0;
+            int n = 0;
+            try{
+                c = Integer.parseInt(request.getParameter("c"));
+                i = Integer.parseInt(request.getParameter("i"));
+                n = Integer.parseInt(request.getParameter("n"));
+        }
+            catch(Exception ex){}
+            i/=100;
+            j=c*i*n;
+            j+=c;
+            DecimalFormat juros = new DecimalFormat("#.##");
+            out.println("<p class=\"parag\"> Montante: R$ " + juros.format(j) + "</p");
+            out.println("<br/>");
             out.println("</div>");
             out.println("</body>");
             out.println("</html>");
